@@ -30,7 +30,7 @@ let newPointStructure = transform(oldPointStructure);
 //Ask the user to enter the word
 function initialPrompt() {
    console.log("Let's play some scrabble!\n");
-   let word = input.question("Enter a word to score: ");
+   let word = input.question("Enter a word to score: ")
    return word
 };
 
@@ -97,19 +97,13 @@ function scorerPrompt(word) {
   for (let i = 0; i < scoringAlgorithms.length; i++) {
     console.log(`${i} - ${scoringAlgorithms[i].name}: ${scoringAlgorithms[i].description}`)
   }
-  let value = input.question("Enter 0, 1, or 2: ");
-  while (Number(value) != 0 || Number(value) != 1 || Number(value) != 2) {
-    value = input.question("Enter 0, 1, or 2: ");
-    if (Number(value) == 0) {
-      console.log(`Score for '${word}': ${scoringAlgorithms[0].scoringFunction(word)}`)
-      break;
-    } else if (Number(value) == 1) {
-      console.log(`Score for '${word}': ${scoringAlgorithms[1].scoringFunction(word)}`)
-      break;
-    } else if (Number(value) == 2){
-      console.log(`Score for '${word}': ${scoringAlgorithms[2].scoringFunction(word)}`)
-      break;
-    }
+  let value = input.question("Enter 0, 1, or 2: ")
+  if (Number(value) == 0) {
+    console.log(`Score for '${word}': ${scoringAlgorithms[0].scoringFunction(word)}`)
+  } else if (Number(value) == 1) {
+    console.log(`Score for '${word}': ${scoringAlgorithms[1].scoringFunction(word)}`)
+  } else {
+    console.log(`Score for '${word}': ${scoringAlgorithms[2].scoringFunction(word)}`)
   }
 }
 
